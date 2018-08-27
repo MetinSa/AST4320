@@ -1,0 +1,142 @@
+\documentclass[a4paper,11.5pt,]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc,url}
+\usepackage[english,]{babel}
+\usepackage{blindtext}
+\usepackage{natbib}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{commath}
+\usepackage{physics}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{svg}
+\usepackage{wrapfig}
+\urlstyle{sf}
+
+
+
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+\def\doubleunderline#1{\underline{\underline{#1}}}
+\makeatletter
+\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+\makeatother
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ textheight =  592mm,
+ left=30mm,
+ right=30mm,
+ tmargin=35mm,
+ bmargin=35mm
+ }
+ 
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.8,0.0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.28,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+ 
+\begin{document}
+\vspace*{2cm}
+\begin{center} 
+ 
+\huge{Assignment 1}
+
+\vspace{15mm}
+
+\large{AST4320: Cosmology and Extragalatic Astronomy}
+
+\vspace{5mm}
+
+\normalsize{Metin San}
+
+\vspace{5mm}
+
+\normalsize{27. August 2018}
+
+\vspace{25mm}
+
+\end{center}
+
+\newpage
+\section*{Exercise 1}
+
+The continuity equation for an unperturbed universe driven by hubble expansion is given as 
+\begin{equation}\label{eq:1}
+\frac{d\bar{\rho}}{dt} + \bar{\rho} \nabla \cdot \mathbf{v}_0 = 0,
+\end{equation}
+where $\bar{\rho}$ is the average density of the universe, and $\mathbf{v}_0$ comes from the Hubble law today which states that 
+\begin{equation}\label{eq:2}
+\mathbf{v_0} = H_0 \mathbf{r}.
+\end{equation}
+Here $H_0$ is the Hubble parameter today, given as $H_0 = \dot{a}(t=t_0) / a(t = t_0)$, where $a$ is the scale factor, and is defined so that $a(t= t_0) = 1$. 
+
+Inserting for \eqref{eq:2} into the continuity equation we find
+\[
+\frac{d\bar{\rho}}{dt} + \bar{\rho} \nabla \cdot \mathbf{r}  \frac{da}{dt} \frac{1}{a}= 0,
+\]
+where the del operator only works on $\mathbf{r}$ as its the scale factor is only a function of time. The operation results in $\nabla \cdot \mathbf{r} = 3$. We can then swap the right term over to the right hand side of the equation which leaves us with
+\[
+\frac{d\bar{\rho}}{dt}  = - 3\bar{\rho}\frac{da}{dt} \frac{1}{a}.
+\]
+Further, we can separate the equation
+\[
+\frac{d\bar{\rho}}{\rho} = -3 \frac{da}{a}.
+\]
+This is then solved in the following way
+\[
+\int_{\bar{\rho}(t=t_0)}^{\bar{\rho}(t)} \frac{d\bar{\rho}}{\rho} = \int_{a(t=t_0)}^{a(t)} -3 \frac{da}{a},
+\]
+\[
+\Rightarrow \ln \left( \frac{\bar{\rho}(t)}{\bar{\rho}(t=t_0)}\right) = \ln \left( \frac{a(t)}{a(t=t_0)}\right)^{-3}.
+\]
+This can then be reduced to
+\begin{equation}\label{eq:3}
+\bar{\rho}(t) = \bar{\rho}(t=t_0)a(t)^{-3},
+\end{equation}
+where we have used that $a(t=t_0) = 1$.
+
+
+\section*{Exercise 2}
+
+The Poisson equation is given as
+
+\begin{equation}\label{eq:4}
+\nabla^2
+\end{equation}
+
+
+
+
+
+\end{document}
