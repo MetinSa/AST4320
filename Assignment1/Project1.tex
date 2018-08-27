@@ -129,14 +129,22 @@ where we have used that $a(t=t_0) = 1$.
 
 \section*{Exercise 2}
 
-The Poisson equation is given as
+The unperturbed Poisson equation is given as
 
 \begin{equation}\label{eq:4}
-\nabla^2
+\nabla^2 \phi_0 = 4 \pi G \rho_0.
 \end{equation}
-
-
-
-
+By rewriting in terms of the perturbation terms, we get the following equation
+\[
+\nabla^2 (\phi + \delta \phi) = 4\pi G (\rho + \delta \rho)
+\]
+We can then write this out to the form
+\[
+\nabla^2 \phi + \nabla^2 \delta \phi = 4 \pi G \rho +4 \pi G \delta \rho.
+\]
+Since the two terms $\nabla^2 \phi$ and $4 \pi G \rho$ simply makes up the Possion equation which is equal to 0, we are left with the perturbed Possion equation
+\begin{equation}\label{eq:4}
+\nabla^2 \delta \phi = 4 \pi G \delta \rho.
+\end{equation}
 
 \end{document}
