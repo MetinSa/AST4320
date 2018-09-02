@@ -90,6 +90,7 @@
 
 \newpage
 \section*{Exercise 1}
+\subsection*{(1)}
 
 The continuity equation for an unperturbed universe driven by hubble expansion is given as 
 \begin{equation}\label{eq:1}
@@ -127,7 +128,7 @@ This can then be reduced to
 where we have used that $a(t=t_0) = 1$.
 
 
-\section*{Exercise 2}
+\subsection*{(2)}
 
 The unperturbed Poisson equation is given as
 
@@ -146,5 +147,41 @@ Since the two terms $\nabla^2 \phi$ and $4 \pi G \rho$ simply makes up the Possi
 \begin{equation}\label{eq:4}
 \nabla^2 \delta \phi = 4 \pi G \delta \rho.
 \end{equation}
+
+
+\section*{Exercise 2}
+In the lectures, we sketched how one could arrive at the second order differential equation 
+
+\begin{equation}\label{eq:6}
+\frac{d^2 \delta}{dt^2} + 2 \frac{\dot{a}(t)}{a(t)} \frac{d \delta}{dt} = \delta(4 \pi G \rho_0 - k^2 c_s^2),
+\end{equation}
+which described the perturbation $\delta(t)$. Here $G$ is the gravitational constant, $k$ is the wavenumber of the perturbation given as $k = 2\pi/ \lambda$, and $c_s$ is the speed of sound in the medium.
+\subsection*{(1)}
+
+The Friedman equations can be used to derive the following expression for the Hubble rate or the time evolution of the scale factor 
+
+\begin{equation}\label{eq:7}
+\left(\frac{\dot{a}}{a}\right)^2 = H^2 = H_0^2 \left[ \frac{\Omega_m}{a^3} + \frac{\Omega_r}{a^4} + \Omega_\Lambda \right],
+\end{equation}
+where $\Omega_i$ is the fractional density parameter and
+$i = m,r, \Lambda$ represents the matter, radiation and dark energy contributions to the density. We will then specifically study the three scenarios where we have  $(\Omega_m, \Omega_\Lambda) = (1.0, 0.0)$, $(\Omega_m, \Omega_\Lambda) = (0.3, 0.7)$, and $(\Omega_m, \Omega_\Lambda) = (0.8, 0.2)$. We let $\Omega_r = 0$ for all scenarios as we want to look at the times close to the CMB.
+
+Inserting these numbers into \eqref{eq:7}, we can find expressions for the $\dot{a}/a$ term for all three cases. Doing so gives us the following three expressions
+
+\begin{equation}\label{eq:8}
+\frac{\dot{a}}{a} = H_0 a^{-3/2}
+\end{equation}
+
+\begin{equation}\label{eq:9}
+\frac{\dot{a}}{a} = H_0 \left[0.3a^{-3} + 0.7\right]^{1/2}
+\end{equation}
+
+\begin{equation}\label{eq:10}
+\frac{\dot{a}}{a} = H_0  \left[0.8a^{-3} + 0.2\right]^{1/2}
+\end{equation}
+
+The first expression \eqref{eq:8} corresponds to the Einstein-de Sitter Universe.
+
+
 
 \end{document}
