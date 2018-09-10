@@ -1,0 +1,233 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc,url}
+\usepackage[english,]{babel}
+\usepackage{blindtext}
+\usepackage{natbib}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{commath}
+\usepackage{physics}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{svg}
+\usepackage{wrapfig}
+\urlstyle{sf}
+
+
+
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+\def\doubleunderline#1{\underline{\underline{#1}}}
+\makeatletter
+\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+\makeatother
+
+ 
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.8,0.0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.28,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+ 
+\begin{document}
+\vspace*{2cm}
+\begin{center} 
+ 
+\huge{Assignment 1}
+
+\vspace{15mm}
+
+\large{AST4320: Cosmology and Extragalatic Astronomy}
+
+\vspace{5mm}
+
+\normalsize{Metin San}
+
+\vspace{5mm}
+
+\normalsize{27. August 2018}
+
+\vspace{25mm}
+
+\end{center}
+
+\newpage
+\section*{Exercise 1}
+\subsection*{(1)}
+
+The continuity equation for an unperturbed universe driven by hubble expansion is given as 
+\begin{equation}\label{eq:1}
+\frac{d\bar{\rho}}{dt} + \bar{\rho} \nabla \cdot \mathbf{v}_0 = 0,
+\end{equation}
+where $\bar{\rho}$ is the average density of the universe, and $\mathbf{v}_0$ comes from the Hubble law today which states that 
+\begin{equation}\label{eq:2}
+\mathbf{v_0} = H_0 \mathbf{r}.
+\end{equation}
+Here $H_0$ is the Hubble parameter today, given as $H_0 = \dot{a}(t=t_0) / a(t = t_0)$, where $a$ is the scale factor, and is defined so that $a(t= t_0) = 1$. 
+
+Inserting for \eqref{eq:2} into the continuity equation we find
+\[
+\frac{d\bar{\rho}}{dt} + \bar{\rho} \nabla \cdot \mathbf{r}  \frac{da}{dt} \frac{1}{a}= 0,
+\]
+where the del operator only works on $\mathbf{r}$ as its the scale factor is only a function of time. The operation results in $\nabla \cdot \mathbf{r} = 3$. We can then swap the right term over to the right hand side of the equation which leaves us with
+\[
+\frac{d\bar{\rho}}{dt}  = - 3\bar{\rho}\frac{da}{dt} \frac{1}{a}.
+\]
+Further, we can separate the equation
+\[
+\frac{d\bar{\rho}}{\rho} = -3 \frac{da}{a}.
+\]
+This is then solved in the following way
+\[
+\int_{\bar{\rho}(t=t_0)}^{\bar{\rho}(t)} \frac{d\bar{\rho}}{\rho} = \int_{a(t=t_0)}^{a(t)} -3 \frac{da}{a},
+\]
+\[
+\Rightarrow \ln \left( \frac{\bar{\rho}(t)}{\bar{\rho}(t=t_0)}\right) = \ln \left( \frac{a(t)}{a(t=t_0)}\right)^{-3}.
+\]
+This can then be reduced to
+\begin{equation}\label{eq:3}
+\bar{\rho}(t) = \bar{\rho}(t=t_0)a(t)^{-3},
+\end{equation}
+where we have used that $a(t=t_0) = 1$.
+
+
+\subsection*{(2)}
+
+The Poisson equation is given as
+\begin{equation}\label{eq:4}
+\nabla^2 \phi = 4 \pi G \rho.
+\end{equation}
+We will now study how small perturbations in quantities of interest evolve in time. We introduce the definition $\psi = \psi_0 +\delta \psi$, where $\psi$ is a variable of interest, $\psi_0$ is the unperturbed quantity and $\delta \psi$ is a little perturbation to that variable. The unperturbed Possion equation is then given as
+
+\begin{equation}\label{eq:5}
+\nabla^2 \phi_0 = 4 \pi G \rho_0.
+\end{equation}
+We can apply the perturbation definition to the gravitational potential $\phi$ and density $\rho$ in Poisson's equation, to get
+\[
+\nabla^2 (\phi_0 + \delta \phi) = 4\pi G (\rho_0 + \delta \rho)
+\]
+This can be written out on the form
+\[
+\nabla^2 \phi_0 + \nabla^2 \delta \phi = 4 \pi G \rho_0 +4 \pi G \delta \rho.
+\]
+We spot that the two terms $\nabla^2 \phi_0$ and $4 \pi G \rho_0$ equal the unperturbed Possion equation. These terms are then removed from the equation as they equal 0. This leaves us with the perturbed Poisson equation
+\begin{equation}\label{eq:6}
+\nabla^2 \delta \phi = 4 \pi G \delta \rho,
+\end{equation}
+Which describes how the perturbations evolve in time.
+\\
+
+A similar derivation can be carried out for the Euler equation. The equation of motion, or the Euler equation is given as
+\begin{equation}\label{eq:7}
+    \frac{d \mathbf{v}}{dt} = - \frac{1}{\rho} \nabla p - \nabla \phi.
+\end{equation}
+In terms of the perturbed quantities, this becomes
+\[
+    \frac{d (\mathbf{v_0} + \delta \mathbf{v})}{dt} = - \frac{1}{(\rho_0 + \delta \rho)} \nabla (p_0 + \delta p) - \nabla (\phi_0 + \delta \phi),
+\]
+where 
+\begin{equation}\label{eq:8}
+    \frac{d\mathbf{v_0}}{dt} = - \frac{1}{\rho_0} \nabla p_0  - \nabla \phi_0
+\end{equation}
+is the unperturbed equation.
+Since the perturbed quantities are very small, we will make the approximation that $1/(\rho_0+ \delta \rho) \approx 1/\rho_0$. In addition to implementing this approximation, we also split up the RHS terms
+\[
+= - \frac{1}{\rho_0} \nabla p_0 - \frac{1}{\rho_0} \nabla \delta p - \nabla \phi_0 - \nabla \delta \phi.
+\]
+We spot that the two terms containing the perturbed quantities are equal the RHS of the unperturbed Euler equation \eqref{eq:8}
+\section*{Exercise 2}
+In the lectures, we sketched how one could arrive at the second order differential equation 
+
+\begin{equation}
+\frac{d^2 \delta}{dt^2} + 2 \frac{\dot{a}(t)}{a(t)} \frac{d \delta}{dt} = \delta(4 \pi G \rho_0 - k^2 c_s^2),
+\end{equation}
+which described the perturbation $\delta(t)$. Here $G$ is the gravitational constant, $k$ is the wavenumber of the perturbation given as $k = 2\pi/ \lambda$, and $c_s$ is the speed of sound in the medium.
+\subsection*{(1)}
+
+The Friedman equations can be used to derive the following expression for the Hubble rate or the time evolution of the scale factor 
+
+\begin{equation}
+\left(\frac{\dot{a}}{a}\right)^2 = H^2 = H_0^2 \left[ \frac{\Omega_m}{a^3} + \frac{\Omega_r}{a^4} + \Omega_\Lambda \right],
+\end{equation}
+where $\Omega_i$ is the fractional density parameter and
+$i = m,r, \Lambda$ represents the matter, radiation and dark energy contributions to the density. We will then specifically study the three scenarios where we have  $(\Omega_m, \Omega_\Lambda) = (1.0, 0.0)$, $(\Omega_m, \Omega_\Lambda) = (0.3, 0.7)$, and $(\Omega_m, \Omega_\Lambda) = (0.8, 0.2)$. We let $\Omega_r = 0$ for all scenarios as we want to look at the times close to the CMB.
+
+Inserting these numbers into \eqref{eq:7}, we can find expressions for the $\dot{a}/a$ term for all three cases. Doing so gives us the following three expressions
+
+\begin{equation}
+\frac{\dot{a}}{a} = H_0 a^{-3/2}
+\end{equation}
+
+\begin{equation}
+\frac{\dot{a}}{a} = H_0 \left[0.3a^{-3} + 0.7\right]^{1/2}
+\end{equation}
+
+\begin{equation}
+\frac{\dot{a}}{a} = H_0  \left[0.8a^{-3} + 0.2\right]^{1/2}
+\end{equation}
+
+The first expression \eqref{eq:8} corresponds to the Einstein-de Sitter Universe.
+
+\section*{Exercise 6}
+
+We can derive the gravitational binding energy of a uniform sphere of radius $R$ and mass $M$ by assuming that the density within the sphere i constant. The density is then given as the total mass divided by the volume
+\[
+\rho = \frac{M}{\frac{4}{3} \pi R^3}.
+\]
+We then imagine that the sphere is divided into shells with the mass of the outermost shell being
+\[
+m_{\text{shell}} = 4\pi R^2 \rho\, dr.
+\]
+The remaining mass within the outer shell is then
+\[
+m_{\text{interior}} = \frac{4}{3}\pi R^3 \rho.
+\]
+The energy required for the outer shell to escape the gravitational pull is then given as
+\[
+dU = -G\frac{m_{\text{shell}} m_{\text{interior}} }{R}.
+\]
+We find the total energy by inserting for the masses and integrating over all shells
+\[
+U = -G \int^R_0 \frac{\left(4\pi R^2 \rho\right)  \left(\frac{4}{3}\pi R^3 \rho \right)}{r} dr
+\]
+\[
+= - \frac{16}{3} G\pi^2 \rho^2 \int_0^R R^4 dr
+\]
+Solving the integral leaves us with 
+\[
+U = - \frac{16}{15} G \pi^2 \rho^2 R^5.
+\]
+Finally by inserting for the density, we get
+
+\[
+U = - \frac{16}{15} G \pi^2 R^5 \left(\frac{M}{\frac{4}{3} \pi R^3}\right)^2 = - \frac{3}{5} \frac{GM^2}{R},
+\]
+which was to be shown.
+\end{document}
