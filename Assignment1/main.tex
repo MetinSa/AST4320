@@ -96,15 +96,15 @@ Inserting for \eqref{eq:2} into the continuity equation we find
 \[
 \frac{d\bar{\rho}}{dt} + \bar{\rho} \nabla \cdot \mathbf{r}  \frac{da}{dt} \frac{1}{a}= 0,
 \]
-where the del operator only works on $\mathbf{r}$ as its the scale factor is only a function of time. The operation results in $\nabla \cdot \mathbf{r} = 3$. We can then swap the right term over to the right hand side of the equation which leaves us with
+where the del operator only works on $\mathbf{r}$ as its the scale factor is only a function of time. The operation results in $\nabla \cdot \mathbf{r} = 3$ which leaves us with
 \[
-\frac{d\bar{\rho}}{dt}  = - 3\bar{\rho}\frac{da}{dt} \frac{1}{a}.
+\frac{d\bar{\rho}}{dt} + 3\bar{\rho}\frac{da}{dt} \frac{1}{a} = 0.
 \]
-Further, we can separate the equation
+We will then separate the equation
 \[
-\frac{d\bar{\rho}}{\rho} = -3 \frac{da}{a}.
+\frac{d\bar{\rho}}{\rho} = -3 \frac{da}{a},
 \]
-This is then solved in the following way
+where we also see that the $dt$ terms cancel each other out. This equation is then solved for the density by integrating both sides of the equation
 \[
 \int_{\bar{\rho}(t=t_0)}^{\bar{\rho}(t)} \frac{d\bar{\rho}}{\rho} = \int_{a(t=t_0)}^{a(t)} -3 \frac{da}{a},
 \]
@@ -284,15 +284,15 @@ Finally, by taking the square root on both sides, we find the following equation
 \end{equation}
 \section*{Exercise 6}
 
-We can derive the gravitational binding energy of a uniform sphere of radius $R$ and mass $M$ by assuming that the density within the sphere i constant. The density is then given as the total mass divided by the volume
+We can derive the gravitational binding energy of a uniform sphere of radius $R$ and mass $M$ by assuming that the density within the sphere i constant. The density is then given as the total mass divided by the volume of the sphere
 \[
 \rho = \frac{M}{\frac{4}{3} \pi R^3}.
 \]
-We then imagine that the sphere is divided into shells with the mass of the outermost shell being
+We then assume that the sphere is divided into thin layers or shells with the mass of the outermost shell being
 \[
-m_{\text{shell}} = 4\pi R^2 \rho\, dr.
+m_{\text{shell}} = 4\pi R^2 \rho\, dR.
 \]
-The remaining mass within the outer shell is then
+The remaining mass within the volume of the outer shell is then
 \[
 m_{\text{interior}} = \frac{4}{3}\pi R^3 \rho.
 \]
@@ -302,10 +302,10 @@ dU = -G\frac{m_{\text{shell}} m_{\text{interior}} }{R}.
 \]
 We find the total energy by inserting for the masses and integrating over all shells
 \[
-U = -G \int^R_0 \frac{\left(4\pi R^2 \rho\right)  \left(\frac{4}{3}\pi R^3 \rho \right)}{r} dr
+U = -G \int^R_0 \frac{\left(4\pi R^2 \rho\right)  \left(\frac{4}{3}\pi R^3 \rho \right)}{R} dR
 \]
 \[
-= - \frac{16}{3} G\pi^2 \rho^2 \int_0^R R^4 dr
+= - \frac{16}{3} G\pi^2 \rho^2 \int_0^R R^4 dR
 \]
 Solving the integral leaves us with 
 \[
