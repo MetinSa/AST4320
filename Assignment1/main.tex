@@ -192,9 +192,96 @@ Inserting these numbers into \eqref{eq:7}, we can find expressions for the $\dot
 \begin{equation}
 \frac{\dot{a}}{a} = H_0  \left[0.8a^{-3} + 0.2\right]^{1/2}
 \end{equation}
-
 The first expression \eqref{eq:8} corresponds to the Einstein-de Sitter Universe.
 
+\section*{Exercise 4}
+
+We will now consider the non-linear time-evolution of a spherical overdensity in the Einstein-de-Sitter Universe. We assume that this overdensity is confined into a sphere of radius $R(t) \equiv b(t)$, where $b(t)$ is the local scale factor. The acceleration of the radius of this sphere is then given by
+\begin{equation}
+    \ddot{R} = - \frac{GM}{R^2}.
+\end{equation}
+We will now show that the following parametrization 
+
+\begin{align}
+    R = A(1 - \cos \theta)\\
+    t = B(\theta - \sin \theta)\\
+    A^3 = GMB^2
+\end{align}
+satisfies the equation ($\ddot{R}$).
+
+We start by inserting equation ($t$) solved for $B$ into ($A^3$), which gives us
+\[
+A^3 = \frac{GMt^2}{(\theta - \sin \theta)^2}.
+\]
+We can further insert this new expression for $A$ into equation ($R$) giving us the following equation for the radius of the sphere
+\begin{equation}
+    R(t) = \frac{(GM)^{1/3} (1- \cos \theta)}{(\theta - \sin \theta)^{2/3}} t^{2/3}.
+\end{equation}
+We will then use the first order Taylor approximations $\cos{\theta} \approx 1 - \theta^2/2! $ and $\sin{\theta} \approx \theta - \theta^3/3!$ . Inserting for these into equation $(R)$ we see that
+\[
+R(t) = \frac{(GM)^{1/3} \left(\frac{\theta^2}{2}\right)}{\left( \frac{\theta^3}{6}\right)^{2/3}} t^{2/3} = (GM)^{1/3}\left(\frac{6^{2/3}}{2}\right) t^{2/3}
+\]
+the expression becomes independent of the angles. We will now differentiate the angleless expression for the radius twice in order to find the acceleration. Doing so leave us with
+\[
+    \ddot{R} = - (GM)^{1/3} \left(\frac{6^{2/3}}{2}\right) \left(\frac{2}{9}\right) \frac{1}{t^{4/3}}.
+\]
+We will now multiply with $R(t)^2$ on both sides of the equation
+\[
+&   R^2 \ddot{R} = - (GM)^{1/3} \left(\frac{6^{2/3}}{2}\right)               \left(\frac{2}{9}\right) \frac{1}{t^{4/3}} \cdot             (GM)^{2/3}\left(\frac{6^{2/3}}{2}\right)^2 t^{4/3}.
+\]
+We see that the constant numbers cancel each other, and we are simply left with
+\[
+R^2 \ddot{R}=  - GM.
+\]
+By dividing both sides with $R^2$, we end up with the desired results
+\begin{equation*}
+    \ddot{R} = - \frac{GM}{R^2},
+\end{equation*}
+which means that the parametrization is satisfied.
+
+\section*{Exercise 5}
+
+We will now compute the infall velocity $v$ from when the material in the overdensity first reaches the viral radius $R_{\text{vir}}$. We will do so by using the parametrization in exercise 4. The infall velocity is given as
+\[
+    v = \frac{dR}{dt},
+\]
+where $R$ is the radius from equation (15). By using the chain rule, we can express this as 
+\[
+    \frac{dR}{dt} = \frac{dR}{d\theta} \frac{d \theta}{dt}.
+\]
+We start by computing $dR/d\theta$ by differentiating equation (15) with respect to $\theta$
+\[
+    \frac{dR}{d\theta} = \frac{d}{d\theta} A(1-\cos\theta) = A \sin \theta.
+\]
+Similarly, we compute $d\theta/dt$ by differentiating expression (16) with respect to $\theta$
+\[
+    \frac{dt}{d\theta} = \frac{d}{d\theta} B(\theta-\sin\theta) = B(1 - \cos \theta).
+\]
+and then inverting it. Combining these terms gives us
+\[
+    v = \frac{A \sin \theta}{B (1- \cos \theta)}.
+\]
+If we now square each side of the equation, we get
+\[
+v^2 = \frac{A^2 \sin^2 \theta}{B^2 (1-\cos \theta)^2}.
+\]
+Further we solve equation (18) for $B^2$ and substitute in
+\[
+v^2 = \frac{GM\sin^2 \theta}{A(1-\cos \theta)^2}
+\]
+and then insert for equation (15) solved for $A$, which gives us
+\[
+    v^2 = \frac{GM \sin^2 \theta}{R (1-\cos \theta)}.
+\]
+We know that radius equals the virialization radius $R=R_\text{vir}$ when $\theta = 3\pi / 2$. We plug in the virialization angle and find
+\[
+    v^2 = \frac{GM}{R_\text{vir}}.
+\]
+Finally, by taking the square root on both sides, we find the following equation for the infall velocity
+
+\begin{equation}
+    v = \sqrt{\frac{GM}{R_\text{vir}}}.
+\end{equation}
 \section*{Exercise 6}
 
 We can derive the gravitational binding energy of a uniform sphere of radius $R$ and mass $M$ by assuming that the density within the sphere i constant. The density is then given as the total mass divided by the volume
