@@ -169,15 +169,17 @@ In the lectures, we sketched how one could arrive at the second order differenti
 \frac{d^2 \delta}{dt^2} + 2 \frac{\dot{a}(t)}{a(t)} \frac{d \delta}{dt} = \delta(4 \pi G \rho_0 - k^2 c_s^2),
 \end{equation}
 which described the perturbation $\delta(t)$. Here $G$ is the gravitational constant, $k$ is the wavenumber of the perturbation given as $k = 2\pi/ \lambda$, and $c_s$ is the speed of sound in the medium.
-\subsection*{(1)}
+≈
 
 The Friedman equations can be used to derive the following expression for the Hubble rate or the time evolution of the scale factor 
 
 \begin{equation}
-\left(\frac{\dot{a}}{a}\right)^2 = H^2 = H_0^2 \left[ \frac{\Omega_m}{a^3} + \frac{\Omega_r}{a^4} + \Omega_\Lambda \right],
+\left(\frac{\dot{a}}{a}\right)^2 = H^2 = H_0^2 \left[ \frac{\Omega_m}{a^3} +  \Omega_\Lambda \right],
 \end{equation}
 where $\Omega_i$ is the fractional density parameter and
-$i = m,r, \Lambda$ represents the matter, radiation and dark energy contributions to the density. We will then specifically study the three scenarios where we have  $(\Omega_m, \Omega_\Lambda) = (1.0, 0.0)$, $(\Omega_m, \Omega_\Lambda) = (0.3, 0.7)$, and $(\Omega_m, \Omega_\Lambda) = (0.8, 0.2)$. We let $\Omega_r = 0$ for all scenarios as we want to look at the times close to the CMB.
+$i = m, \Lambda$ represents the matter and dark energy contributions to the density. We have assumed that the fractional radiation density is $\omega_r = 0$. 
+
+We will then specifically study the three scenarios where we have  $(\Omega_m, \Omega_\Lambda) = (1.0, 0.0)$, $(\Omega_m, \Omega_\Lambda) = (0.3, 0.7)$, and $(\Omega_m, \Omega_\Lambda) = (0.8, 0.2)$. 
 
 Inserting these numbers into \eqref{eq:7}, we can find expressions for the $\dot{a}/a$ term for all three cases. Doing so gives us the following three expressions
 
@@ -194,6 +196,73 @@ Inserting these numbers into \eqref{eq:7}, we can find expressions for the $\dot
 \end{equation}
 The first expression \eqref{eq:8} corresponds to the Einstein-de Sitter Universe.
 
+\subsection*{(2)}
+
+We will now numerically solve differential equation \eqref{9}. By using the critical density relation and assuming that perturbation is much larger than the Jeans length, we can rewrite the equation as
+\begin{equation}
+    \frac{d^2 \delta}{dt^2} + 2H\frac{d \delta}{dt} = \frac{3}{2}H^2 \delta,
+\end{equation}
+where it now only depends on $H$, which we previously derived.
+In order to solve this numerically, we need to split the second order differential equation into two first order equations. We introduce the substitution 
+\begin{equation}
+    v = \frac{d\delta}{d t}.
+\end{equation}
+From this substitution it follows that
+\begin{equation}
+    \frac{dv}{dt} = \frac{3}{2}H^2 \delta - 2Hv.
+\end{equation}
+
+We will further use Euler's method to solve the differential equation iterative. One should in principle use methods of higher precision to avoid errors in the results, however, Euler's method seem to be sufficient in this case. In addition, our main interest lies in studying the behaviour of the perturbation and not necessarily the precise values. 
+
+Euler's Method says that a general variable $y$ at a time $t + dt$ can be expressed as
+\[
+y(t + dt) = y(t) + \frac{dy}{dt} \cdot dt.
+\]
+Discretized, this can be written as 
+\begin{equation}
+    y_{i+1} = y_i + y_i'dt.
+\end{equation}
+By applying this method to our case, we end up with the following two equations we end up with the following set of equations
+
+\begin{equation}
+    v_{i+1} = v_i + \frac{dv}{dt}\cdot dt,
+\end{equation}
+\begin{equation}
+    \delta_{i+1} = \delta_i + v_i.
+\end{equation}
+In order to simplify our lives, we also change variable from t to a, so that \[
+dt = dt\frac{da}{da} = \frac{da}{\dot{a}},
+\]
+where $\dot{a} = H a$. 
+
+We are given the boundary conditions $\log \delta = -3.0$ at $\log a = -3.0$. By assuming that $\delta \propto a$ at early times we find the initial condition of $\dot{\delta} \propto \dot{a}$. We are then ready to solve the differential equation for the three different universes. Doing so results in the following plot of the time evolution of the perturbations
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\linewidth]{2b.pdf}
+  \caption{Time evolution of $\delta$ for the three different cosmologies with only matter and dark energy.}
+  \label{fig:1}
+\end{figure}
+
+We see that for the Einstein-de Sitter case with $\Omega_m = 1$, the function is completely linear. This is expected as $\delta \propto a$ in this cosmology. For the two other cosmologies, we see that they also have a linear behaviour for most of the time scale. They do however begin to curve towards for higher values of a. This is because the matter term gets smaller as $a$ increases, and the cosmological constant begins to take over. 
+
+\subsection*{(3)}
+Having computed $\delta$ and $a$, we can now compute the growth factor $f$ given as 
+\begin{equation}
+    f \equiv \frac{d \ln \delta}{\ln a}.
+\end{equation}
+This is then plotted as a function of redshift z, where z is given as
+\begin{equation}
+    z +1 = \frac{a(t=t_0)}{a(t)}.
+\end{equation}
+Doing so results in the following plot 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\linewidth]{growth.pdf}
+  \caption{Time evolution of $\delta$ for the three different cosmologies with only matter and dark energy.}
+  \label{fig:2}
+\end{figure}
+From figure \ref{fig:2} we see that the growth factor for the Einstein-de Sitter universe is basically constant at $f = 0$, meaning that there are no growth in this model. The two other models follows this flatness early in the history of the universe, but start to decrease when $z$ approaches $z =1$. We see again that the model with the largest $\Omega_\Lambda$ experiences the largest growth.
 \section*{Exercise 4}
 
 We will now consider the non-linear time-evolution of a spherical overdensity in the Einstein-de-Sitter Universe. We assume that this overdensity is confined into a sphere of radius $R(t) \equiv b(t)$, where $b(t)$ is the local scale factor. The acceleration of the radius of this sphere is then given by
