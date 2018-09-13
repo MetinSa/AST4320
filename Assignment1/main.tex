@@ -72,7 +72,7 @@
 
 \vspace{5mm}
 
-\normalsize{27. August 2018}
+\normalsize{13. September 2018}
 
 \vspace{25mm}
 
@@ -161,8 +161,32 @@ Since the perturbed quantities are very small, we will make the approximation th
 \[
 = - \frac{1}{\rho_0} \nabla p_0 - \frac{1}{\rho_0} \nabla \delta p - \nabla \phi_0 - \nabla \delta \phi.
 \]
-We spot that the two terms containing the perturbed quantities are equal the RHS of the unperturbed Euler equation \eqref{eq:8}
+We spot that the two terms containing the perturbed quantities are equal the RHS of the unperturbed Euler equation \eqref{eq:8}, and we can replace them with $d\mathbf{v_0}/dt$, so that the RHS is simply
+\[
+= \frac{d\mathbf{v_0}}{dt} - \frac{1}{\rho_0} \nabla \delta p  - \nabla \delta \phi.
+\]
+
+We proceed with the LHS of the equation by writing out the total derivative
+
+\[
+ \frac{d (\mathbf{v_0} + \delta \mathbf{v})}{dt} = \frac{\partial (\mathbf{v_0} + \delta \mathbf{v})}{\partial t} + (\mathbf{v_0} + \delta \mathbf{v}) \cdot \nabla (\mathbf{v_0} + \delta \mathbf{v})
+\]
+\[
+ = \frac{\partial \mathbf{v_0}}{\partial t} + \frac{\partial \delta \mathbf{v}}{\partial t} + \mathbf{v_0} \cdot \nabla \mathbf{v_0} + \delta \mathbf{v} \cdot \nabla \mathbf{v_0} + \mathbf{v_0}\cdot \nabla \delta \mathbf{v} + \delta \mathbf{v} \cdot \nabla \delta \mathbf{v}
+\]
+\[
+= \frac{d \delta \mathbf{v}}{dt} + \frac{d \mathbf{v_0}}{dt} + \delta \mathbf{v} \cdot \nabla \mathbf{v}.
+\]
+In the last step we have used te fact that the the product of two infinitesimals are approximately 0. We have then rewritten back to total derivative form and gotten the extra $\delta \mathbf{v} \cdot \nabla \mathbf{v}$ term.
+
+We can then collect both sides and cancel out the unperturbed terms, and we are left with the perturbed euler equation
+\begin{equation}
+    \frac{d \delta \mathbf{v}}{dt} + \delta \mathbf{v} \cdot \nabla \mathbf{v} = - \frac{1}{\rho_0} \nabla \delta p  - \nabla \delta \phi.
+\end{equation}
+
+
 \section*{Exercise 2}
+\subsection*{(1)}
 In the lectures, we sketched how one could arrive at the second order differential equation 
 
 \begin{equation}
@@ -177,11 +201,11 @@ The Friedman equations can be used to derive the following expression for the Hu
 \left(\frac{\dot{a}}{a}\right)^2 = H^2 = H_0^2 \left[ \frac{\Omega_m}{a^3} +  \Omega_\Lambda \right],
 \end{equation}
 where $\Omega_i$ is the fractional density parameter and
-$i = m, \Lambda$ represents the matter and dark energy contributions to the density. We have assumed that the fractional radiation density is $\omega_r = 0$. 
+$i = m, \Lambda$ represents the matter and dark energy contributions to the density. We have assumed that the fractional radiation density is $\Omega_r = 0$. 
 
 We will then specifically study the three scenarios where we have  $(\Omega_m, \Omega_\Lambda) = (1.0, 0.0)$, $(\Omega_m, \Omega_\Lambda) = (0.3, 0.7)$, and $(\Omega_m, \Omega_\Lambda) = (0.8, 0.2)$. 
 
-Inserting these numbers into \eqref{eq:7}, we can find expressions for the $\dot{a}/a$ term for all three cases. Doing so gives us the following three expressions
+Inserting these numbers into (11), we can find expressions for the $\dot{a}/a$ term for all three cases. Doing so gives us the following three expressions
 
 \begin{equation}
 \frac{\dot{a}}{a} = H_0 a^{-3/2}
@@ -194,11 +218,11 @@ Inserting these numbers into \eqref{eq:7}, we can find expressions for the $\dot
 \begin{equation}
 \frac{\dot{a}}{a} = H_0  \left[0.8a^{-3} + 0.2\right]^{1/2}
 \end{equation}
-The first expression \eqref{eq:8} corresponds to the Einstein-de Sitter Universe.
+The first expression (12) corresponds to the Einstein-de Sitter Universe.
 
 \subsection*{(2)}
 
-We will now numerically solve differential equation \eqref{9}. By using the critical density relation and assuming that perturbation is much larger than the Jeans length, we can rewrite the equation as
+We will now numerically solve differential equation (10). By using the critical density relation and assuming that perturbation is much larger than the Jeans length, we can rewrite the equation as
 \begin{equation}
     \frac{d^2 \delta}{dt^2} + 2H\frac{d \delta}{dt} = \frac{3}{2}H^2 \delta,
 \end{equation}
@@ -259,10 +283,86 @@ Doing so results in the following plot
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.9\linewidth]{growth.pdf}
-  \caption{Time evolution of $\delta$ for the three different cosmologies with only matter and dark energy.}
+  \caption{Growth factor for different cosmologies.}
   \label{fig:2}
 \end{figure}
 From figure \ref{fig:2} we see that the growth factor for the Einstein-de Sitter universe is basically constant at $f = 0$, meaning that there are no growth in this model. The two other models follows this flatness early in the history of the universe, but start to decrease when $z$ approaches $z =1$. We see again that the model with the largest $\Omega_\Lambda$ experiences the largest growth.
+
+\section*{Exercise 3}
+
+\subsection*{ (1) }
+
+We will now study the temperature evolution of the radiation and gas in the universe in the range $a \in (10^{-4},1)$. We will assume that the both fluids evolve adiabatically though out the expansion of the universe. For an ideal gas whith adiabatic expansion, we have the following temperature volume relation
+
+\begin{equation}
+    TV^{\gamma-1} = C,
+\end{equation}
+where $\gamma$ is the degrees of freedom and $C$ is a constant. We assume that the universe is dominated by hydrogen, so that $\gamma = 5/3$ for an monatomic gas. Further we assume that the volume of the gas expands proportional to the expansion of the universe so that $V \propto a$. This leaves us with the following expression for the temperature of the gas
+
+\begin{equation}
+    T_\text{gas} = C a^{-2}.
+\end{equation}
+
+
+The considered radiation is the CMB radiation, which is a near perfect blackbody radiation. We can therfore use Wien's displacment law which says that the temperature of blackbody radiation is proportional to a constant divided by the wavelength
+\begin{equation}
+    T =  \frac{B}{\lambda}.
+\end{equation}
+$B$ is generally known, but we will use it as an unknown here and mainly focus on the fact that blackbody radiation is proportioanl to wavelength. We also know that the $\lambda \propto a$ because of redshift. This gives us the following relation for the temperature of the radiation
+\begin{equation}
+    T_\text{rad} = Ba^{-1}.
+\end{equation}
+
+In order to find the constant, we use the fact that the temperatures of the gas and radiation was the same during decoupling which occurred at $z = 1090$. At this time $T_\text{rad} = T_\text{gas} = 3000$K. Using this, we can solve equations (23) and (25) for $C$ and $B$. The results are then plotted and can be seen in figure (3).
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Temp.pdf}
+  \caption{Time evolution of gas and radiation temperature.}
+  \label{fig:3}
+\end{figure}
+
+In reality both temperatures would have been equal until decoupling but our simple temperature mode does not account for this. We find that at $a = 1$ which is today, the temperature of the radiation is equal to $T(t=t_0) = 2.75$K. This is very close to the temperature of the CMB today which is $T_\text{CMB} = 2.725$. 
+
+\subsection*{(2)}
+
+We will now look at the Jeans length $\lambda_J$ and Jeans mass $M_J$. They are given as
+
+\begin{equation}
+    \lambda_J = c_s \sqrt{\frac{\pi}{G \rho}},
+\end{equation}
+\begin{equation}
+    M_J = \frac{\pi^{5/2}}{6} \frac{c_s^3}{G^{3/2}\rho^{1/2}},
+\end{equation}
+where $c_s$ is the speed of sound and $G$ is the gravitational constant.
+We are interested in finding out how they are related to redshift. We know that the speed of sound is given as
+
+\begin{equation}
+    c_s = \sqrt{\frac{k_B T}{\mu m_p}},
+\end{equation}
+where $k_B$ is the Boltzmann constant, $\mu$ is the average particle weight, and $m_p$ is the proton mass. We can now insert our the gas temperature found in the previous exercise. Doing so gives us
+\begin{equation}
+    c_s = \sqrt{\frac{k_B}{\mu m_p}} C^{1/2}a^{-1} = \sqrt{\frac{k_B C}{\mu m_p}}(1+z).
+\end{equation}
+We will also use the expression for density found in equation (3). Rewriting the Jeans mass and length in terms of these quantities, we end up with 
+
+\begin{equation}
+    \lambda_J = \sqrt{\frac{k_B \pi C }{\mu m_p G \rho_0}} (1+z)^{-1/2},
+\end{equation}
+\begin{equation}
+    M_J =  \frac{\pi^{5/2}}{6 \rho^{1/2}}\left( \frac{k_B C}{\mu m_p G} \right)^{3/2} (1+z)^{3/2}.
+\end{equation}
+    
+Prior to the decoupling, the plasma was relativistic, and the speed of sound was then a constant $c_s = c/ \sqrt{3}$ rather than a function of redshift.Using this expression to for the speed of sound, we find the following expressions for the Jeans length $\lambda'_J$ and mass $M'_J$ prior to decoupling
+
+\begin{equation}
+    \lambda'_J = \frac{c}{\sqrt{3}} \sqrt{\frac{\pi}{G\rho_0}}(1+z)^{-3/2},
+\end{equation}
+\begin{equation}
+    M'_J = \frac{\pi^{5/2}}{6 G^{3/2}\rho_0^{1/2}} \frac{c^3}{(3)^{3/2}}(1+z)^{-3/2},
+\end{equation}
+where we see that the only redshift dependancy now comes from the density. We also spot that the pre decoupling expressions contain the speed of light $c$ which means that their amplitude will be much larger than the post decoupling expressions.
+
 \section*{Exercise 4}
 
 We will now consider the non-linear time-evolution of a spherical overdensity in the Einstein-de-Sitter Universe. We assume that this overdensity is confined into a sphere of radius $R(t) \equiv b(t)$, where $b(t)$ is the local scale factor. The acceleration of the radius of this sphere is then given by
