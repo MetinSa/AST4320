@@ -100,7 +100,6 @@ def main():
 		#plotting the results
 		plt.loglog(a, u, label = r"$\Omega_m$ = %g , $\Omega_\Lambda$ = %g" %(omega_m, omega_l))
 
-
 	plt.title("Time evolution of perturbations")
 	plt.xlabel("$a$")
 	plt.ylabel(r"$\delta$")
@@ -130,6 +129,5 @@ def main():
 	plt.grid(linestyle="--")
 	plt.savefig("growth.pdf")
 	plt.show()
-
 
 main()
