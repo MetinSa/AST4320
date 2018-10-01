@@ -125,7 +125,7 @@ class RandomWalk():
 			deltas[i] = d
 
 			# Returning only critical threshold values
-			if d < 1:
+			if d <= 1:
 
 				Sc_crit.append(S)
 				delta_crit.append(d)
@@ -143,7 +143,7 @@ class RandomWalk():
 
 		# Performing the walks and extracting the data
 		deltas, delta_crit , Sc, Sc_crit = self.performWalk(n_walks)
-
+		print(np.sum(deltas))
 		# Plotting a histogram of the distribution
 		plt.hist(deltas, bins=35, normed = True, color = "royalblue", label = "Random walk simulation")
 
@@ -173,18 +173,18 @@ class RandomWalk():
 		deltas, delta_crit, Sc, Sc_crit = self.performWalk(n_walks)
 
 		# Plotting a histogram of the critical distribution
-		plt.hist(delta_crit, bins="auto", normed = True, color = "royalblue", label = "Random walk simulation")
+		plt.hist(delta_crit, bins=35, normed = True, color = "royalblue", label = "Random walk simulation")
 
 		# Linspace of deltas_crit to be used in analytic expression
 		delta_crit_list = np.linspace(np.min(delta_crit),np.max(delta_crit),len(delta_crit))
 
 		# Plotting the analytic PDF for comparison with randomwalk simulation
-		plt.plot(delta_crit_list, self.PDF_nc(delta_crit_list, Sc_crit), color = "black", linewidth = 1, label = "Analytic PDF")
+		plt.plot(delta_crit_list, self.PDF_nc(delta_crit_list, Sc_crit), color = "black", linewidth = 1, label = r"Analytic PDF$_{\rm{nc}}$")
 		plt.xlabel(r"$\delta$")
 		plt.ylabel("Probablity")
-		plt.title("Random Walk Simulation and analytic PDF")
+		plt.title(r"Random Walk for $\delta_{\rm{crit}}$ and analytic PDF$_{\rm{nc}}$")
 		plt.legend(fancybox = False, edgecolor = "black")
-		plt.savefig("randomcritwalk.pdf")
+		# plt.savefig("randomcritwalk.pdf")
 
 		plt.show()
 
@@ -203,8 +203,8 @@ if __name__ == '__main__':
 
 
 	RW = RandomWalk(eps, initial_var)
-	# path = RW.distribution(n_walks)
-	path = RW.critDistribution(n_walks)
+	path = RW.distribution(n_walks)
+	# path = RW.critDistribution(n_walks)
 
 
 
