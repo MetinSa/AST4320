@@ -184,30 +184,30 @@ From the analysis in exercise 2, we know that the probability distribution funct
     P(> M) = 1 - \int_{-\infty}^{\delta_\text{crit}} P_\text{nc} (\delta \mid M) d\delta,
 \end{equation}
 
-\noindent where we have integrated $P_\text{nc}$ from $\infty$ to $\delta_\text{crit}$.
+\noindent where we have integrated $P_\text{nc}$ from $-\infty$ to $\delta_\text{crit}$.
 
 \subsection*{(2)}
 
 We will now show how the factor 2 in the Press-Schechter formalism naturally occurs. We do so by first combingin equations \eqref{eq:9} and \eqref{eq:10}. This leaves us with 
 
 \begin{equation}\label{eq:11}
-    P(> M) = 1 - \frac{1}{\sqrt{2 \pi} \sigma} \int_\infty^{\delta_\text{crit}} \left( \exp \left[- \frac{\delta^2}{2\sigma^2} \right] - \exp \left[ - \frac{[2\delta_\text{crit} - \delta]^2 }{2\sigma^2} \right] \right)
+    P(> M) = 1 - \frac{1}{\sqrt{2 \pi} \sigma} \int_{-\infty}^{\delta_\text{crit}} \left( \exp \left[- \frac{\delta^2}{2\sigma^2} \right] - \exp \left[ - \frac{[2\delta_\text{crit} - \delta]^2 }{2\sigma^2} \right] \right)
 \end{equation}
 
 \noindent We split the integral into two integrals, I and II
 
 \[
-     \text{I}:\qquad  \int_\infty^{\delta_\text{crit}} e^{- \delta^2 /2 \sigma^2} d\delta,
+     \text{I}:\qquad  \int_{-\infty}^{\delta_\text{crit}} e^{- \delta^2 /2 \sigma^2} d\delta,
 \]
 
 \[
-    \text{II}:\qquad  \int_\infty^{\delta_\text{crit}} e^{- (2\delta_\text{crit} - \delta)^2/2 \sigma^2} d\delta.
+    \text{II}:\qquad  \int_{-\infty}^{\delta_\text{crit}} e^{- (2\delta_\text{crit} - \delta)^2/2 \sigma^2} d\delta.
 \]
 
 \noindent We start with computing I
 
 \[
-    \text{I}:\qquad  \int_\infty^{\delta_\text{crit}} e^{- \delta^2 /2 \sigma^2} d\delta = \frac{1}{2} \sqrt{2 \pi} \sigma\left[ \text{erf}  \left( \frac{\nu}{\sqrt{2}}\right) + 1 \right],
+    \text{I}:\qquad  \int_{-\infty}^{\delta_\text{crit}} e^{- \delta^2 /2 \sigma^2} d\delta = \frac{1}{2} \sqrt{2 \pi} \sigma\left[ \text{erf}  \left( \frac{\nu}{\sqrt{2}}\right) + 1 \right],
 \]
 
 \noindent where we have substituted $\nu = \delta_\text{crit}/ \sigma$, and erf is the error function given as 
@@ -219,7 +219,7 @@ We will now show how the factor 2 in the Press-Schechter formalism naturally occ
 \noindent Similarely, we compute II
 
 \[
-    \text{II}:\qquad  \int_\infty^{\delta_\text{crit}} e^{- (2\delta_\text{crit} - \delta)^2/2 \sigma^2} d\delta = \frac{1}{2} \sqrt{2 \pi} \sigma \; \text{erfc} \left( \frac{\nu}{\sqrt{2}}\right),
+    \text{II}:\qquad  \int_{-\infty}^{\delta_\text{crit}} e^{- (2\delta_\text{crit} - \delta)^2/2 \sigma^2} d\delta = \frac{1}{2} \sqrt{2 \pi} \sigma \; \text{erfc} \left( \frac{\nu}{\sqrt{2}}\right),
 \]
 
 \noindent where erfc is given as
