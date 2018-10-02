@@ -55,7 +55,9 @@ class RandomWalk():
 		# Defining critical value of delta
 		delta_crit = 1
 
-		return (1/(np.sqrt(2*np.pi*variance)))*( np.exp( -(delta**2)/(2*variance) ) - np.exp( -((2*delta_crit - delta)**2)/(2*variance)) )
+		# Added random scaling of 1/0.4 to match histogram...
+
+		return (1/(0.4))*(1/(np.sqrt(2*np.pi*variance)))*( np.exp( -(delta**2)/(2*variance) ) - np.exp( -((2*delta_crit - delta)**2)/(2*variance)) )
 
 
 
@@ -143,7 +145,7 @@ class RandomWalk():
 
 		# Performing the walks and extracting the data
 		deltas, delta_crit , Sc, Sc_crit = self.performWalk(n_walks)
-		print(np.sum(deltas))
+
 		# Plotting a histogram of the distribution
 		plt.hist(deltas, bins=35, normed = True, color = "royalblue", label = "Random walk simulation")
 
@@ -173,7 +175,7 @@ class RandomWalk():
 		deltas, delta_crit, Sc, Sc_crit = self.performWalk(n_walks)
 
 		# Plotting a histogram of the critical distribution
-		plt.hist(delta_crit, bins=35, normed = True, color = "royalblue", label = "Random walk simulation")
+		plt.hist(delta_crit, bins="auto", normed = True, color = "royalblue", label = "Random walk simulation")
 
 		# Linspace of deltas_crit to be used in analytic expression
 		delta_crit_list = np.linspace(np.min(delta_crit),np.max(delta_crit),len(delta_crit))
@@ -199,12 +201,12 @@ if __name__ == '__main__':
 	eps = 1e-1
 
 	# Number of walks
-	n_walks = int(1e4)
+	n_walks = int(1e5)
 
 
 	RW = RandomWalk(eps, initial_var)
-	path = RW.distribution(n_walks)
-	# path = RW.critDistribution(n_walks)
+	# path = RW.distribution(n_walks)
+	path = RW.critDistribution(n_walks)
 
 
 
