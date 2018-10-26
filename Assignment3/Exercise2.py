@@ -51,9 +51,9 @@ def OpticalDepth(z_min, z_max):
 
 	"""
 
-	z, dz	= np.linspace(0,10, n, retstep = True)				# Redshift-array
-	tau = np.zeros(n)											# Optical depth-array
-	tau[0] = (n_e(z[0])*dz)/((1+z[0])*H(z[0]))					# Initial condition for tau
+	z, dz	= np.linspace(0,10, n, retstep = True)		# Redshift-array
+	tau = np.zeros(n)									# Optical depth-array
+	tau[0] = (n_e(z[0])*dz)/((1+z[0])*H(z[0]))			# Initial condition for tau
 
 	# Computing tau
 	for i in range(n-1):
