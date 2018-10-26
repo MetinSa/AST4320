@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from astropy import constants as const
 
 """
-Global parameters/constans
+Global parameters/constants
 """
 
 n = int(1e4)					# number of integration points
@@ -25,7 +25,7 @@ def n_e(z):
 	Returns the numberdensity of electrons in IGM. 
 	(assuming that IGM consists of only fully ionized hydrogen)
 	"""
-	
+
 	return 1.9e-7 * (1+z)**3
 
 
