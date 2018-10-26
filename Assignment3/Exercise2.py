@@ -65,16 +65,19 @@ def OpticalDepth(z_min, z_max):
 
 
 """
-Plotting the results
+Plotting and printing the results.
 
 """
 
 z, tau = OpticalDepth(0,10)
+
+print("Tau(z=0) = %f" %tau[0],"\nTau(z=6) = %f" %tau[np.where(z >= 6)[0][0]],\
+		"\nTau(z=7) = %f" %tau[-1])
 
 plt.plot(z,tau, color = "royalblue", label = r" Optical Depth, $\tau_e(z)$")
 plt.grid(linestyle="--")
 plt.legend()
 plt.xlabel("z")
 plt.ylabel(r"$\tau_e$")
-plt.savefig("tau.pdf")
+plt.savefig("figures/tau.pdf")
 plt.show()
