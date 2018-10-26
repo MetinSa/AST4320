@@ -1,0 +1,122 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{AST4320 - Assignment 3}
+
+\author{Metin San}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Exercise 3}
+\subsection*{a)}
+
+In the lectures we derived the following second order differential equation for the density
+profile of an "isothermal" halo
+
+\begin{equation}\label{eq:halo}
+    -\frac{k_b T}{m_{\text{DM}}r^2} \frac{d}{dr} r^2 \frac{d}{dr} \ln{\rho(r)} = 4\pi G \rho(r).
+\end{equation}
+
+\noindent We can show that
+
+\begin{equation}\label{eq:halodef}
+    \rho(r) = \frac{A}{r^2}, \qquad A = \frac{k_bT}{2\pi G m_{\text{DM}}},
+\end{equation}
+is a solution to equation \eqref{eq:halo} by substituting it in to the LHS.
+We start by rewriting the logarithm expression to the form
+
+\begin{equation*}
+    \frac{d \ln(\rho)}{dr} = \frac{1}{\rho} \frac{d \rho}{dr}.
+\end{equation*}
+
+\noindent Next up, we insert for $\rho$ and compute the derivative
+
+\begin{equation*}
+    \frac{1}{\rho} \frac{d \rho}{dr} = \frac{r^2}{A} \frac{d}{dr} \left( \frac{A}{r^2} \right) = -\frac{2}{r}. 
+\end{equation*}
+
+\noindent Inserting this into equation \eqref{eq:halo} and computing the remaining derivative
+leaves us with
+
+\begin{equation}\label{eq:halosub}
+    \frac{2k_b T}{m_{\text{DM}}r^2} = 4\pi G \rho(r).
+\end{equation}
+
+\noindent If we now substitute the constants on the LHS with A, we find
+
+\begin{equation*}
+    \frac{k_b T}{m_\text{DM}} = 2\pi G A.
+\end{equation*}
+
+\noindent Finally we insert this into \eqref{eq:halosub}
+
+\begin{equation*}
+    4\pi G \frac{A}{r^2} = 4\pi G \rho(r).
+\end{equation*}
+
+\noindent By reinserting for $\rho(r)$ from definition \eqref{eq:halodef}, we see that this is
+indeed the solution.
+
+\subsubsection*{b)}
+
+For an isothermal gas, we have the following equation of state
+
+\begin{equation}\label{eq:isoEOS}
+    p = \frac{k_b T}{m_\text{p}} \rho.
+\end{equation}
+
+\noindent For a gas in hydrostatic equilibrium we have
+
+\begin{equation}\label{eq:hydrostatic}
+    \frac{dp}{dr} = - \frac{GM(<r)\rho}{r^2}.
+\end{equation}
+
+\noindent We will now show that an isothermal gas will end up in a similar state. We assume
+that the density profile is given similar to that of the isothermal halo, so that 
+
+\begin{equation*}
+    \rho (r) = \frac{A_\text{gas}}{r^2}, \qquad  A_\text{gas}  = \frac{k_b T}{2\pi G m_\text{p}}.
+\end{equation*}
+
+\noindent Rewriting the pressure in equation \eqref{eq:isoEOS} in terms of $ A_\text{gas} $ results in
+
+\begin{equation}\label{eq:eossub}
+    p = 2\pi G  A_\text{gas}  \rho (r).
+\end{equation}
+
+\noindent For a spherical symmetric gas, the mass which is smaller than some radius $r$ is
+given as
+
+\begin{equation}\label{eq:mass}
+    M (<r) = 4\pi \int_0^r x^2 dx \rho(x)  = \frac{4\pi}{3}r^3\rho(r) .
+\end{equation}
+
+\noindent We can now rewrite equation \eqref{eq:eossub} in terms of $M $ from equation 
+\eqref{eq:mass}. Doing so leaves us with the following equation of state
+
+\begin{equation}\label{eq:eossub2}
+    p = \frac{3}{2} \frac{G M (<r) \rho (r)}{r}.
+\end{equation}
+
+\noindent Finally, we differentiate equation \eqref{eq:eossub2} with respect to r which 
+leaves us with 
+
+\begin{equation}\label{eq:isohydro}
+    \frac{dp}{dr} = \frac{-3GM(<r) \rho(r)}{r^2}.
+\end{equation}
+
+\noindent We see that this is a very similar to the non-isothermal case seen in equation \eqref{eq:hydrostatic}, the only difference being the factor 3. In both scenarios, the gas results in a state where
+
+\begin{equation}\label{eq:hydroprop}
+    \frac{dp}{dr} \propto \frac{M(<r)\rho(r)}{r^2}.
+\end{equation}
+
+\end{document}
