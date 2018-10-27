@@ -51,7 +51,7 @@ def OpticalDepth(z_min, z_max):
 
 	"""
 
-	z, dz	= np.linspace(0,10, n, retstep = True)		# Redshift-array
+	z, dz	= np.linspace(z_min,z_max, n, retstep = True)		# Redshift-array
 	tau = np.zeros(n)									# Optical depth-array
 	tau[0] = (n_e(z[0])*dz)/((1+z[0])*H(z[0]))			# Initial condition for tau
 
@@ -63,6 +63,10 @@ def OpticalDepth(z_min, z_max):
 
 	return z, tau
 
+def printInfo(z, tau):
+
+	print("Tau(z=0) = %f" %tau[0],"\nTau(z=6) = %f" %tau[np.where(z >= 6)[0][0]],\
+		"\nTau(z=7) = %f" %tau[-1])
 
 """
 Plotting and printing the results.
@@ -71,13 +75,12 @@ Plotting and printing the results.
 
 z, tau = OpticalDepth(0,10)
 
-print("Tau(z=0) = %f" %tau[0],"\nTau(z=6) = %f" %tau[np.where(z >= 6)[0][0]],\
-		"\nTau(z=7) = %f" %tau[-1])
+printInfo(z,tau)
 
 plt.plot(z,tau, color = "royalblue", label = r" Optical Depth, $\tau_e(z)$")
 plt.grid(linestyle="--")
 plt.legend()
 plt.xlabel("z")
 plt.ylabel(r"$\tau_e$")
-plt.savefig("figures/tau.pdf")
+# plt.savefig("figures/tau.pdf")
 plt.show()
