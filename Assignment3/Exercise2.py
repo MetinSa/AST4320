@@ -63,19 +63,21 @@ def OpticalDepth(z_min, z_max):
 
 	return z, tau
 
-def printInfo(z, tau):
 
-	print("Tau(z=0) = %f" %tau[0],"\nTau(z=6) = %f" %tau[np.where(z >= 6)[0][0]],\
-		"\nTau(z=7) = %f" %tau[-1])
+def printInfo(z, tau, z_min, z_max, z_any):
+
+	print("Tau(z = %g) = %g \nTau(z = %g) = %g \nTau(z = %g) = %g" %(z_min, tau[0], z_max, tau[-1],\
+		z_any, tau[np.where(z >= z_any)[0][0]]))
 
 """
 Plotting and printing the results.
 
 """
+z_min = 0
+z_max = 10
+z, tau = OpticalDepth(z_min,z_max)
 
-z, tau = OpticalDepth(0,10)
-
-printInfo(z,tau)
+printInfo(z, tau, z_min, z_max, 3)
 
 plt.plot(z,tau, color = "royalblue", label = r" Optical Depth, $\tau_e(z)$")
 plt.grid(linestyle="--")
