@@ -15,6 +15,10 @@
 \begin{document}
 \maketitle
 
+The programs which compute the results presented below is attached together with the delivery but can also be found on my
+GitHub\footnote{\href{https://github.com/MetinSa/AST4320/blob/master/Assignment3
+}{\texttt{github.com/metinsa/AST4320/assignment3/}}}. 
+
 \section*{Exercise 1}
 \subsection*{a)}
 We assume that the intergalactic medium (IGM) contains only hydrogen and helium with
@@ -59,31 +63,100 @@ The Jeans mass is given as
 \noindent Since we are considering the IGM, the density is given as
 
 \begin{equation}\label{eq:rho}
-    \rho = \rho_m(1+z)^3 = \Omega_m \rho_c (1+z)^3,
+    \rho = \rho_b(1+z)^3 = \Omega_b \rho_c (1+z)^3,
 \end{equation}
 
-\noindent where we have used that $\Omega_m = \rho_m / \rho_c = 0.308$ where $\rho_c \approx 10^{-26}$kg m$^{-3}$ is the critical density. If we now use the definitions in equations \eqref{eq:sound}, \eqref{eq:rho}, we can rewrite the expressions of the Jeans length and mass in terms of redshift. The Jeans mass is then given as
+\noindent where we have used that $\Omega_b = \rho_b / \rho_c = 0.048$ where $\rho_c \approx 10^{-26}$kg m$^{-3}$ is the critical density. If we now use the definitions in equations \eqref{eq:sound}, \eqref{eq:rho}, we can rewrite the expressions of the Jeans length and mass in terms of redshift. The Jeans mass is then given as
 
 \begin{equation}\label{eq:jeanfinal}
-    M_J = \frac{\pi^{5/2}}{6} \left( \frac{k_B T}{G \mu m_p} \right)^{3/2} (\Omega_m \rho_c)^{1/2} (1+z)^{3/2},
+    M_J = \frac{\pi^{5/2}}{6} \left( \frac{k_B T}{G \mu m_p} \right)^{3/2} (\Omega_b \rho_c)^{1/2} (1+z)^{3/2},
 \end{equation}
 
 \noindent and similarely the Jeans length is given as
 
 \begin{equation}\label{eq:jeanlenfinal}
-    \lambda_J = \left( \frac{\pi k_B T}{G \mu m_p \Omega_m \rho_c} \right)^{1/2} (1+z)^{-3/2}.
+    \lambda_J = \left( \frac{\pi k_B T}{G \mu m_p \Omega_b \rho_c} \right)^{1/2} (1+z)^{-3/2}.
 \end{equation}
 
-\noindent If we use that the IGM has a temperature of $T = 10^4$K, then the Jeans Mass at a redshift $z = 4$ with the corresponding wave number $k$ is equal to 
+\noindent If we use that the IGM has a temperature of $T = 10^4$K, then the Jeans length at a redshift $z = 4$ with the corresponding wave number $k$ is equal to 
 
 \begin{equation}\label{eq:jeans z=4}
-    M_J(z=4) = 5.515 \times 10^{15}\mathrm{kg}, \qquad k = \frac{2\pi}{\lambda_J(z = 4)} = 1.516 \times 10^{-21}\mathrm{m}^{-1}.
+    \lambda_J(z=4) = 1.049 \times 10^{22}\mathrm{m}, \qquad k = \frac{2\pi}{\lambda_J(z = 4)} = 5.988 \times 10^{-22}\mathrm{m}^{-1}.
 \end{equation}
 
+\subsection*{c)}
+
+The Jeans length corresponds to the velocity width provided by expansion.
+Hubble's law tells us that
+\begin{equation}\label{eq:hubblelaw}
+   v = HD 
+\end{equation}
+
+\noindent where $H$ is the Hubble parameter which for the universe we
+consider is given as
+
+\begin{equation}\label{eq:hubble1}
+       H( z ) = H _ { 0 } \left( \Omega _ { m } ( 1 + z ) ^ { 3 } + \Omega
+    _ { r } ( 1 + z ) ^ { 4 } + \Omega _ { \Lambda } \right)^{1/2}.
+\end{equation}
+
+\noindent If we consider a spherical symmetric gas
+cloud with diameter on the scale of the Jean's length $\lambda_J$, then
+the front and back ends of the cloud would move away from us with
+respective velocities $v_1$ and $v_2$ given by
+Hubble's law seen in equation \eqref{eq:hubblelaw}. We find the velocity
+width by considering the differential form of Hubble's law
+
+\begin{equation*}
+    dv = H dD.
+\end{equation*}
+
+\noindent We proceed by integrating both sides
+
+\begin{equation*}
+    \int_{v_0}^{v_1} dv = \int_0^{\lambda_J} H dD,
+\end{equation*}
+
+\noindent which leave us with
+
+\begin{equation}\label{eq:velwidth}
+    \Delta v(z) = H(z)\lambda_J.
+\end{equation}
+
+\noindent By inserting for $H$ from equation \eqref{eq:hubble1} and using
+redshift $z=4$, we find that the velocity width is 
+
+\begin{equation}\label{velwidth results}
+    \Delta v(z=4) = 1.49 \times 10^5 \textrm{ m s}^{-1}
+\end{equation}
+
+\subsection*{d)}
+
+The finite width of the Ly $\alpha$ extinction profile is responsible for the forest only being present on the left side of the peak (I believe). 
+
+
+\subsection*{e)}
+
+The Ly$\alpha$ extinction profile is broadened by the thermal motion in
+the gas. This broadening scale is given as 
+
+\begin{equation}\label{eq:broad}
+    v_\mathrm{th} = \left(\frac{2 k_b T}{m_p}\right)^{1/2}.
+\end{equation}
+
+\noindent The IGM is usually assumed to have a temperature around
+$10000$K. If we then compute this broadening scale, we find that its value is
+
+\begin{equation}\label{eq:broad val}
+    v_\mathrm{th} = 12848 \textrm{ m s}^{-1}.
+\end{equation}
+
+\noindent This is very close to the Jean's length velocity found in
+equation \eqref{velwidth results} suggesting some correlation. For lower
+redshifts the difference increases as $\Delta v$ increases.
 
 \section*{Exercise 2}
-In the lectures we derived that the total optical depth of the ionized IGM due to
-electron scattering is given by
+In the lectures we derived that the total optical depth of the ionized IGM due to electron scattering is given by
 
 \begin{equation}\label{eq:tau}
     \tau _ { \mathrm { e } } ( z ) = c \int _ { 0 } ^ { z } \frac { n _ { e } ( z )
@@ -106,10 +179,7 @@ and is given as
 today. If we assume that the IGM is completely ionized and consists only of hydrogen,
 then $\overline { n } _ { \mathrm { H } } ( z ) \approx n_e(z)$. We are then interested
 in calculating and plotting the optical depth $\tau_e(z)$ as a function of $z$ in the
-redshift range $z\in [0,10]$. We do this by creating a \texttt{python} program which solves equation \eqref{eq:tau} for the above values. The program is attached together with the
-delivery but can also be found on my
-GitHub\footnote{\href{https://github.com/MetinSa/AST4320/blob/master/Assignment3/Exercise2.py
-}{\texttt{github.com/metinsa/AST4320/assignment3/exercise2.py}}}. 
+redshift range $z\in [0,10]$. We do this by creating a \texttt{python} program which solves equation \eqref{eq:tau} for the above values.
 
 The results of the calculation can be seen in figure \ref{fig:tau}. We see that the
 optical depth today is $\tau_e(z = 0)\approx 0$. We also find $\tau_e(z = 6) = 0.0332$
@@ -187,12 +257,10 @@ For an isothermal gas, we have the following equation of state
 \noindent For a gas in hydrostatic equilibrium we have
 
 \begin{equation}\label{eq:hydrostatic}
-    \frac{dp}{dr} = - \frac{GM(<r)\rho}{r^2}.
+    \frac{dp}{dr} = - \frac{GM(<r)\rho(r)}{r^2}.
 \end{equation}
 
-\noindent We will now show that an isothermal gas will end up in a similar state. We
-assume
-that the density profile is given similar to that of the isothermal halo, so that 
+\noindent We will now show that an isothermal gas will end up in a similar state. We assume that the density profile is given similar to that of the halo, so that 
 
 \begin{equation*}
     \rho (r) = \frac{A_\text{gas}}{r^2}, \qquad  A_\text{gas}  = \frac{k_b T}{2\pi G
@@ -210,29 +278,27 @@ results in
 is given as
 
 \begin{equation}\label{eq:mass}
-    M (<r) = 4\pi \int_0^r x^2 dx \rho(x)  = \frac{4\pi}{3}r^3\rho(r) .
+    M (<r) = 4\pi \int_0^r x^2 dx \rho(x).
 \end{equation}
 
-\noindent We can now rewrite equation \eqref{eq:eossub} in terms of $M $ from equation 
-\eqref{eq:mass}. Doing so leaves us with the following equation of state
+\noindent By substituting in the $\rho(r)$ assumption, we find that the mass is 
 
+\begin{equation}\label{eq:mass res}
+    M(<r) = 4\pi \int_0^r \frac{r^2 A_\mathrm{gas}}{r^2}dr = 4\pi A_\mathrm{gas} r.
+\end{equation}
+
+\noindent We can now insert this mass into the equation of state in \eqref{eq:eossub} by solving it for $A_\textrm{gas}$. Doing so leaves us with the following equation of state
 \begin{equation}\label{eq:eossub2}
-    p = \frac{3}{2} \frac{G M (<r) \rho (r)}{r}.
+    p = \frac{1}{2} \frac{G M (<r) \rho (r)}{r}.
 \end{equation}
 
-\noindent Finally, we differentiate equation \eqref{eq:eossub2} with respect to r which 
-leaves us with 
+\noindent Finally, we differentiate equation \eqref{eq:eossub2} with respect to r which leaves us with 
 
 \begin{equation}\label{eq:isohydro}
-    \frac{dp}{dr} = \frac{-3GM(<r) \rho(r)}{r^2}.
+    \frac{dp}{dr} = -\frac{GM(<r) \rho(r)}{r^2}.
 \end{equation}
 
-\noindent We see that this is a very similar to the non-isothermal case seen in equation
-\eqref{eq:hydrostatic}, the only difference being the factor 3. In both scenarios, the
-gas results in a state where
-
-\begin{equation}\label{eq:hydroprop}
-    \frac{dp}{dr} \propto \frac{M(<r)\rho(r)}{r^2}.
-\end{equation}
+\noindent This is identical to the non-isothermal case seen in equation
+\eqref{eq:hydrostatic}.
 
 \end{document}
