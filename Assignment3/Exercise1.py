@@ -105,7 +105,16 @@ Plotting and calulculations
 
 """
 
-z = float(sys.argv[1])
+# Checks if z is passed along as an input
+if len(sys.argv) < 2:
+	print("Please pass along a redshift value, e.g z = 4")
+	sys.exit()
+
+else:
+	# Reads in z value of interest
+	z = float(sys.argv[1])
+
+# Compute and prints all results
 printInfo(z)
 
 
